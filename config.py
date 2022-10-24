@@ -449,6 +449,11 @@ reconfigure_screens = True
 # focus, should we respect this or not?
 auto_minimize = True
 
+@hook.subscribe.startup_once
+def start_once():
+    home = os.path.expanduser('~')
+    subprocess.call([home + '/.config/qtile/autostart.sh'])
+
 # When using the Wayland backend, this can be used to configure input devices.
 # wl_input_rules = None
 
